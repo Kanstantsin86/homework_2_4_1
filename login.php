@@ -10,13 +10,17 @@ $errors = [];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $login = $_POST['login'];
     $password = $_POST['password'];
+    $username = $_POST['guest-name'];
 
     if (login($login, $password)) {
         redirect('index');
+    } elseif (guest($username)) {
+         
+        redirect('list');
     } else {
         $errors[] = 'Логин или пароль неверные';
-    }    
-
+        
+    }
 }
 /*if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['guest-name'];

@@ -16,13 +16,13 @@ function login($login, $password) {
 	return false;
 }
 
-function guest() {
-		$_SESSION['user'] = $username;
+function guest($username) {
+		$_SESSION['name'] = $username;
 		return true;
-	}
+}
 
 function isGuest() {
-	return !empty($_SESSION['user']);
+	return !empty($_SESSION['name']);
 }
 
 function isAuthorized() {

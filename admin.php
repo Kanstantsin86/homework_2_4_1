@@ -1,4 +1,10 @@
 <?php
+require_once __DIR__ . '/functions.php';
+
+if (!isAuthorized()) {
+    redirect('login');
+}
+
 ini_set('upload_max_filesize', '3M');
 if ($_SERVER['REQUEST_METHOD'] == "POST" ) {
 	if ($_FILES['userfile']['error'] == UPLOAD_ERR_OK && $_FILES['userfile']['type'] == 'application/json') {
